@@ -1,0 +1,44 @@
+﻿@model List<Models.Club.ClubVM>
+
+<h2>Liste des Clubs</h2>
+
+<div class="row mt-3">
+    <div class="col-md-12">
+
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th>nom</th>
+                    <th>Descriprtion</th>
+                    <th>Date de creation</th>
+
+
+
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var club in Model)
+                {
+
+                    <tr>
+
+                        <td>@club.Nom</td>
+                        <td>@club.Description</td>
+                        <td>@club.DateCreation.ToString("dd/MM/yyyy")</td>
+
+                        <td>
+
+                            <a asp-controller="Club" asp-action="Edit" asp-route-id="@club.Id" class="btn btn-success btn-sm">Editer</a>
+                            <a asp-controller="Club" asp-action="Delete" asp-route-id="@club.Id" class="btn btn-danger btn-sm">Supprimer</a>
+
+                        </td>
+
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
