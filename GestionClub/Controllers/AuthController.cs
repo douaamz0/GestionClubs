@@ -44,8 +44,8 @@ namespace GestionClub.Controllers
 
                 AuthenticationProperties properties = new AuthenticationProperties()
                 {
-                    AllowRefresh = true,
-                    //IsPersistent = us.KeepLoggedIn
+                    AllowRefresh = true
+                    
                 };
                 HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
                     new ClaimsPrincipal(claimsIdentity), properties);

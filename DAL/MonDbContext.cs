@@ -12,7 +12,7 @@ namespace DAL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-94BCDKU\SQLEXPRESS;Initial Catalog=GestionClub;Trusted_Connection=True;MultipleActiveResultSets=True;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer(@"Data Source=Doudi\SQLEXPRESS;Initial Catalog=GestionClub;Trusted_Connection=True;MultipleActiveResultSets=True;TrustServerCertificate=True");
         }
 
         
