@@ -52,6 +52,11 @@ namespace DAL.Repos
             MonDbContext db = new MonDbContext();
             return db.Clubs.ToList();
         }
+        public int CountClub()
+        {
+            MonDbContext db=new MonDbContext();
+            return db.Clubs.Count();
+        }
         
     }
 }

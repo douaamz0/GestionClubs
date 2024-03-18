@@ -113,6 +113,11 @@ namespace BLL
 
             repos.Update(activiteAModifier);
         }
+        public int nbrActivite()
+        {
+            var repos = new ActiviteRepos();
+            return repos.CountActivite();
+        }
 
     }
 }

@@ -36,6 +36,12 @@ namespace DAL.Repos
             MonDbContext db = new MonDbContext();
             return db.Membres.ToList();
         }
+        public int nbrMembre()
+        {
+            MonDbContext db = new MonDbContext();
+            return db.Membres.Count();
+
+        }
 
     }
 }

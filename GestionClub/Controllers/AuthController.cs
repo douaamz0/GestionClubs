@@ -19,7 +19,7 @@ namespace GestionClub.Controllers
             ClaimsPrincipal claimUser = HttpContext.User;
 
             if (claimUser.Identity.IsAuthenticated)
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Club");
             return View();
         }
 
@@ -50,7 +50,7 @@ namespace GestionClub.Controllers
                 HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
                     new ClaimsPrincipal(claimsIdentity), properties);
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Club");
             }
 
             

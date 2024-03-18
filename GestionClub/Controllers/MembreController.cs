@@ -4,6 +4,7 @@ using Models.Membres;
 using Models.Club;
 using DAL.Entity;
 using Microsoft.AspNetCore.Authorization;
+using GestionClub.Controllers;
 
 namespace GestionClubs.Controllers
 {
@@ -33,8 +34,13 @@ namespace GestionClubs.Controllers
             
             
             if(id !=0)
-            
+            {
+                ViewBag.nbrMembre = membreService.nbrMembre();
                 return View(membreService.MembreParClub(id));
+
+            }
+            
+                
             
             else
             {
@@ -57,13 +63,13 @@ namespace GestionClubs.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(MembreVM model)
         {
-
+            ClubController club=new ClubController();
 
             try
             {
                 MembreService service = new MembreService();
                 service.Ajouter(model);
-                return RedirectToAction(nameof(listClub));
+                return RedirectToAction("list", "Club");
             }
             catch
             {
@@ -77,7 +83,7 @@ namespace GestionClubs.Controllers
             ViewData["Titre"] = "Supression d'un membre";
            
             membreService.Supprimer(id);
-            return RedirectToAction(nameof(listClub));
+            return RedirectToAction("list", "Club");
         }
         public ActionResult Edit(int id)
         {
@@ -104,7 +110,7 @@ namespace GestionClubs.Controllers
                 ViewBag.IdClub = club.ListeClub();
                 MembreService service = new MembreService();
                 service.Modifier(membre);
-                return RedirectToAction(nameof(listClub));
+                return RedirectToAction("list", "Club");
             }
             catch
             {

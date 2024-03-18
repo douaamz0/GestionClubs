@@ -28,14 +28,18 @@ namespace GestionClub.Controllers
         }
         public IActionResult list(int id)
         {
-            ActiviteService membreService = new ActiviteService();
+            ActiviteService activiteService = new ActiviteService();
             ClubService clubService = new ClubService();
 
             ViewBag.Clubs = clubService.ListeClub();
 
             if (id != 0)
+            {
+                ViewBag.nbrActivite = activiteService.nbrActivite();
+                return View(activiteService.ActiviteParClub(id));
+            }
 
-                return View(membreService.ActiviteParClub(id));
+                
 
             else
             {
@@ -63,7 +67,7 @@ namespace GestionClub.Controllers
             {
                 ActiviteService service = new ActiviteService();
                 service.Ajouter(model);
-                return RedirectToAction(nameof(listClub));
+                return RedirectToAction("list","Club");
             }
             catch
             {
@@ -76,7 +80,7 @@ namespace GestionClub.Controllers
 
             ViewData["Titre"] = "Supression d'une activité";
             activiteService.Supprimer(id);
-            return RedirectToAction(nameof(listClub));
+            return RedirectToAction("list", "Club");
         }
         public ActionResult Edit(int id)
         {
@@ -103,7 +107,7 @@ namespace GestionClub.Controllers
                 ViewBag.IdClub = club.ListeClub();
                 ActiviteService service = new ActiviteService();
                 service.Modifier(activite);
-                return RedirectToAction(nameof(listClub));
+                return RedirectToAction("list", "Club");
             }
             catch
             {

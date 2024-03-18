@@ -33,6 +33,11 @@ namespace DAL.Repos
             MonDbContext db = new MonDbContext();
             return db.Activites.ToList();
         }
-        
+        public int CountActivite()
+        {
+            MonDbContext db = new MonDbContext();
+            return db.Activites.Count();
+        }
+
     }
 }

@@ -19,7 +19,7 @@ namespace GestionClub.Controllers
         {
             ClubService clubService = new ClubService();
 
-
+            ViewBag.nombreClub = clubService.NbrClubs();
                 return View(clubService.ListeClub());
 
         }

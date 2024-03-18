@@ -118,6 +118,12 @@ namespace BLL
             repos.Update(membreAModifier);
         }
 
+        public int nbrMembre()
+        {
+            var repos=new MembreRepos();
+            return repos.nbrMembre();
+        }
+
 
     }
 

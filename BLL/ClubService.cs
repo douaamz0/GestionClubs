@@ -92,6 +92,11 @@ namespace BLL
 
             return clubVM;
         }
+        public int NbrClubs()
+        {
+            var repos = new ClubRepos();
+            return repos.CountClub();
+        }
 
 
     }

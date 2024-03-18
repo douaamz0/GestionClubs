@@ -1,64 +1,26 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
+<SThead>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - GestionClub</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/GestionClub.styles.css" asp-append-version="true" />
+    
 
-    <style>
-        .navbar-custom {
-            background-color: white !important; /* Couleur de fond verte foncée */
-            padding: 20px; /* Augmentation de la taille de la navbar */
-        }
+    
 
-            .navbar-custom .navbar-brand,
-            .navbar-custom .nav-link {
-                color: #000000 !important; /* Couleur du texte en noir */
-                font-weight: bold; /* Texte en gras */
-                font-size: 20px; /* Augmentation de la taille du texte à l'intérieur */
-            }
-
-                .navbar-custom .navbar-brand:hover,
-                .navbar-custom .nav-link:hover {
-                    color: green !important; /* Couleur du texte en blanc au survol */
-                }
-    </style>
-</head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light navbar-custom border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Club" asp-action="Index">Clubs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Membre" asp-action="Index">Membres</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Activite" asp-action="Index">Activites</a>
-                        </li>
-                        <div class="container">
-                            <div class="d-flex justify-content-between">
-                                <form asp-controller="Auth" asp-action="Logout" method="post" class="form-inline">
-                                    <button type="submit" class="btn btn-danger p-2">Déconnexion</button>
-                                </form>
-                                <a href="@Url.Action("Create", "Auth")" class="btn btn-primary">Ajouter un administrateur</a>
-                            </div>
-                        </div>
-                       
-                    </ul>
-                </div>
+    <header style="margin:20px;">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <form asp-controller="Auth" asp-action="Logout" method="post" class="form-inline">
+                    <button type="submit" class="btn btn-danger p-2">Déconnexion</button>
+                </form>
+                <a href="@Url.Action("Create", "Auth")" class="btn btn-primary">Ajouter un administrateur</a>
             </div>
-        </nav>
+        </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
